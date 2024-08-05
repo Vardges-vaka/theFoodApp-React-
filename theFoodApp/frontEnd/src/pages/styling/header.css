@@ -1,0 +1,37 @@
+.user-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.main-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  height: 56px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  justify-content: space-between;
+  /* width: 120px; */
+  border-radius: 5px;
+  background-color: #7a44ff;
+}
+
+.main-btn img {
+  height: 20px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f5ff;
+  padding: 10px 30px;
+}
+.business-btn {
+  display: flex;
+  gap: 10px;
+}
+.business-btn img {
+  height: 20px;
+}

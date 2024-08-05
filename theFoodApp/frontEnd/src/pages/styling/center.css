@@ -1,0 +1,57 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.steps-info {
+  display: flex;
+  padding: 24px;
+  gap: 30px;
+}
+.text-image {
+  display: flex;
+}
+.steps-head {
+  color: #7a44ff;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  line-height: 58px;
+}
+.step-item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.step-num {
+  color: #7a44ff;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 99px;
+  font-size: 24px;
+  background-color: #f8f5ff;
+}
+.step-title {
+  font-size: 24px;
+  line-height: 58px;
+}
+.step-doc {
+  font-size: 16px;
+  line-height: 28px;
+  color: #667085;
+}
+.side-image {
+  width: 223px;
+}
+.side-image img {
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-width: 1000px) {
+  .steps-info {
+    flex-direction: column;
+  }
+}
