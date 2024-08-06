@@ -1,6 +1,6 @@
 import React from "react";
 
-function FoodCard({ data }) {
+function FoodCard({ data, setShow, isLoading }) {
   return (
     <div class="card">
       <div class="food-card">
@@ -10,11 +10,18 @@ function FoodCard({ data }) {
             src="./images/hot-sushi-bg.webp"
             alt="sushi card"
           />
-          <img
+          <div
+            onClick={() => {
+              isLoading ? () => {} : setShow(true);
+            }}
+          >
+            +
+          </div>
+          {/* <img
             class="heart-icon"
             src="./images/heart-icon.svg"
             alt="heart icon"
-          />
+          /> */}
         </div>
 
         <div class="text-container">

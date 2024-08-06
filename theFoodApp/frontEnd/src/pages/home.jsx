@@ -8,12 +8,16 @@ import useFoodList from "../hooks/foodList";
 import HomeHeader from "./homeHeader";
 import HomeFilter from "./HomeFilter";
 import FoodCard from "./sharedComponents/FoodCard";
+import { Modal, Button } from "react-bootstrap";
+
 const LazyFooter = React.lazy(() => import("./sharedComponents/footer"));
 
 function Home() {
   const { data, isLoading } = useFoodList();
+  const [show, setShow] = useState(false);
+  // const { isLogin, isLoading } = useFoodList();
   console.log(data, isLoading);
-  const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState([]);
   const callOnRender = (id, phase, actualDuration, startTime) => {
     console.log(id, phase, actualDuration, startTime, "profile");
   };
@@ -27,7 +31,7 @@ function Home() {
           <HomeFilter />
           <section>
             <p class="places-text">
-              <span class="color-main">2840</span> Places to Order
+              <span class="color-main">{data.length}</span> Places to Order
             </p>
             <div class="search-container">
               <img src="./images/fi-rr-search.svg" />
@@ -37,8 +41,14 @@ function Home() {
             <div class="cards-container">
               {/* <!-- food card --> */}
               {data.map((item) => {
-                if (category == "All" || category == item.category) {
-                  return <FoodCard data={item} />;
+                if (category == [] || category == item.category) {
+                  return (
+                    <FoodCard
+                      data={item}
+                      isLoading={isLoading}
+                      setShow={setShow}
+                    />
+                  );
                 }
               })}
             </div>
@@ -52,6 +62,21 @@ function Home() {
         </Suspense>
         <CopyRight />
       </Profiler>
+
+      <Modal show={show} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShow(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => setShow}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }

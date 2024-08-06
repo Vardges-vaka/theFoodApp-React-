@@ -5,6 +5,8 @@ import ErrorBoundary from "./ErrorBoundary";
 export const UserContext = React.createContext();
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   return (
     <>
