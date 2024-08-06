@@ -1,0 +1,48 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #7a44ff;
+  width: 100%;
+  height: fit-content;
+    padding-top: 20px;
+    margin-top: 50px;
+}
+.dishs-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* top: 100px;
+  left: 10%; */
+  /* border: 2px solid red; */
+  /* position: absolute; */
+  overflow-x: scroll;
+}
+.food-dish {
+  /* width: 96.4px;
+  min-height: 98px;
+  max-height: auto; */
+  border-radius: 12px;
+  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Poppins";
+  font-size: 14px;
+}
+
+.bg-orange-light {
+  background-color: #ffe5b4;
+}
+
+.bg-green-light {
+  background-color: #b8ffb4;
+}
+
+.bg-blue-light {
+  background-color: #b4d7ff;
+}

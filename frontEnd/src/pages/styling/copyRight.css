@@ -1,0 +1,24 @@
+.copy-right {
+  background-color: #7a44ff;
+  padding: 24px;
+  display: flex;
+  margin: 64px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy-right-text {
+  color: #f8f5ff;
+  line-height: 40px;
+  font-size: 15px;
+}
+.copy-right-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 21px;
+}
+
+.copy-right-icon {
+  width: 18px;
+  height: 18px;
+}

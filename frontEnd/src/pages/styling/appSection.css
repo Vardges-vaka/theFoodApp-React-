@@ -1,0 +1,75 @@
+.image-container img {
+  animation: feedIn 2s;
+}
+
+@keyframes feedIn {
+  from {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+
+    opacity: 1;
+  }
+}
+.app-section {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  background-color: #7a44ff;
+  padding: 256px 175px;
+}
+.app-download {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 58px;
+  width: 442px;
+  margin-bottom: 16px;
+}
+.app-text {
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+.btn-app-container {
+  display: flex;
+  gap: 20px;
+  padding: 42px 0;
+}
+.btn-app-dark {
+  background-color: black;
+  color: white !important;
+}
+.btn-app {
+  width: 183px;
+  height: 52px;
+  border-radius: 20px;
+  color: #1b2037;
+  text-align: center;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  border: none;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  .app-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
