@@ -1,6 +1,6 @@
 import React from "react";
 
-function FoodCard() {
+function FoodCard({ data }) {
   return (
     <div class="card">
       <div class="food-card">
@@ -24,7 +24,7 @@ function FoodCard() {
 
           <div class="card-info">
             <div>
-              <p class="card-info-head">Sushi Express</p>
+              <p class="card-info-head">{data.name}</p>
               <div class="review-text card-info-text">
                 <img src="./images/fi-sr-star.svg" alt="star icon" />
                 <span class="rating-text">4.8</span>
