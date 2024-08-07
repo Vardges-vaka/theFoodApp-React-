@@ -3,6 +3,14 @@
   margin: 0;
   box-sizing: border-box;
 }
+.page-container {
+  height: 100vh;
+}
+.table {
+  margin: 50px 10px;
+  width: max-content;
+  border: 2px solid purple;
+}
 /* page layout */
 .main-layout {
   display: flex;

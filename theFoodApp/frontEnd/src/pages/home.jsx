@@ -9,12 +9,15 @@ import HomeHeader from "./homeHeader";
 import HomeFilter from "./HomeFilter";
 import FoodCard from "./sharedComponents/FoodCard";
 import { Modal, Button } from "react-bootstrap";
-
+import Login from "./login";
 const LazyFooter = React.lazy(() => import("./sharedComponents/footer"));
 
 function Home() {
   const { data, isLoading } = useFoodList();
   const [show, setShow] = useState(false);
+  const [showContent, setShowContet] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+
   // const { isLogin, isLoading } = useFoodList();
   console.log(data, isLoading);
   const [category, setCategory] = useState([]);
@@ -67,7 +70,9 @@ function Home() {
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Login setShow={setShow} />
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShow(false)}>
             Close
