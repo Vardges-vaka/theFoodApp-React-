@@ -5,12 +5,9 @@ function FoodCard({ data, setShow, isLoading }) {
     <div class="card">
       <div class="food-card">
         <div class="img-container">
-          <img
-            class="food-img"
-            src="./images/hot-sushi-bg.webp"
-            alt="sushi card"
-          />
+          <img class="food-img" src="" alt="sushi card" />
           <div
+            className="btn"
             onClick={() => {
               isLoading ? () => {} : setShow(true);
             }}
@@ -26,7 +23,7 @@ function FoodCard({ data, setShow, isLoading }) {
 
         <div class="text-container">
           <div class="restaurant-logo">
-            <img src="./images/rest-img.webp" />
+            <img src="" />
           </div>
 
           <div class="card-info">
