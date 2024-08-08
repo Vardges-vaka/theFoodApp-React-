@@ -172,7 +172,7 @@ header {
 }
 /* food card style */
 .food-card {
-  width: 398px;
+  width: 448px;
   height: auto;
   border-radius: 10px;
   border: 1px solid rgb(191, 187, 187);
@@ -180,8 +180,15 @@ header {
 
 .img-container {
   position: relative;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 100%;
+  background-size: contain;
+  background-image: url("./assets/Images/placeholder.png");
 }
 .food-img {
+  width: 100%;
+  height: 200px;
   border-radius: 10px 10px 0 0;
 }
 
@@ -287,7 +294,10 @@ header {
 }
 .cards-container {
   display: flex;
+  margin-top: 30px;
   flex-wrap: wrap;
+  /* justify-content: space-between; */
+  gap: 40px;
 }
 .card {
   padding-bottom: 24px;

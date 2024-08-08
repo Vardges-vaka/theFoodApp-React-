@@ -15,12 +15,10 @@ const LazyFooter = React.lazy(() => import("./sharedComponents/footer"));
 function Home() {
   const { data, isLoading } = useFoodList();
   const [show, setShow] = useState(false);
-  const [showContent, setShowContet] = useState(false);
-  const [showProfile, setShowProfile] = useState(false);
 
   // const { isLogin, isLoading } = useFoodList();
   console.log(data, isLoading);
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState("All");
   const callOnRender = (id, phase, actualDuration, startTime) => {
     console.log(id, phase, actualDuration, startTime, "profile");
   };
@@ -40,11 +38,10 @@ function Home() {
               <img src="./images/fi-rr-search.svg" />
               <input type="text" />
             </div>
-            {category + "this the category!!!"}
             <div class="cards-container">
               {/* <!-- food card --> */}
               {data.map((item) => {
-                if (category == [] || category == item.category) {
+                if (category == "All" || category == item.category) {
                   return (
                     <FoodCard
                       data={item}

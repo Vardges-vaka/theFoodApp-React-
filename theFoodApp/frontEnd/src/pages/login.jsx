@@ -7,7 +7,7 @@ function Login({ setShow }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [name, setName] = useState("");
   const login = async () => {
     try {
       const myHeaders = new Headers();
@@ -31,7 +31,29 @@ function Login({ setShow }) {
       alert("Someting wrong happend");
     }
   };
+  const CreateAccount = async () => {
+    try {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      let result = await fetch("http://localhost:4000/api/user/register", {
+        method: "POST",
+        headers: myHeaders,
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
 
+      let data = await result.json();
+      if (data.success) {
+        localStorage.setItem("token", data.token);
+        setShow(false);
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Someting wrong happend");
+    }
+  };
   return showLogin ? (
     <div className="flex">
       <input
@@ -52,9 +74,19 @@ function Login({ setShow }) {
   ) : (
     <div className="flex">
       <input type="text" placeholder=" write your name here" />
-      <input type="text" placeholder=" write your email here" />
-      <input type="password" placeholder="Write your password here" />
-      <Button>Create account</Button>
+      <input
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        type="text"
+        placeholder=" write your email here"
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Write your password here"
+      />
+      <Button onClick={CreateAccount}>Create account</Button>
       <p onClick={() => setShowLogin(true)}>Aleardy have an account</p>
     </div>
   );
