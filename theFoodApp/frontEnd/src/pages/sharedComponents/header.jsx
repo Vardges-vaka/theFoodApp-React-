@@ -14,11 +14,10 @@ function Header() {
       <div className="user-nav">
         <div className="business-btn">
           <img src={BriefcaseIcon} alt="Briefcase Icon" />
-          <p>Start your business</p>
         </div>
-        <button className="main-btn">
+        <button className="main-btn flex-row">
           <img src={AccountIcon} alt="Account icon" />
-          <p>Account</p>
+          {/* <p>Account</p> */}
         </button>
       </div>
     </header>

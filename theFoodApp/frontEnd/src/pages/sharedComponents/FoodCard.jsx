@@ -11,7 +11,6 @@ function FoodCard({ data, setShow, isLoading }) {
         <img
           className="food-img"
           src={`http://localhost:4000/images/${data.image}`}
-          // onError={ImgPlaceholder}
           alt="sushi card"
         />
         <div

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
+import { Button, Toast } from "react-bootstrap";
 import "./login.css";
-function Login({ setShow }) {
+function Login({ setShow, setShowToast, notify }) {
   const [showLogin, setShowLogin] = useState(true);
 
   const [email, setEmail] = useState("");
@@ -23,6 +22,8 @@ function Login({ setShow }) {
 
       let data = await result.json();
       if (data.success) {
+        // setShowToast(true);
+        () => notify();
         localStorage.setItem("token", data.token);
         setShow(false);
       }
@@ -31,7 +32,7 @@ function Login({ setShow }) {
       alert("Someting wrong happend");
     }
   };
-  const CreateAccount = async () => {
+  const register = async () => {
     try {
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
@@ -39,6 +40,7 @@ function Login({ setShow }) {
         method: "POST",
         headers: myHeaders,
         body: JSON.stringify({
+          name: name,
           email: email,
           password: password,
         }),
@@ -56,24 +58,41 @@ function Login({ setShow }) {
   };
   return showLogin ? (
     <div className="flex">
-      <input
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder=" write your email here"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Write your password here"
-      />
-      <Button onClick={login}>Login</Button>
-      <p onClick={() => setShowLogin(false)}>Dont have an account</p>
+      <form onSubmit={login}>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder=" write your email here"
+        />
+        <input
+          type="password"
+          value={password}
+          // autoComplete="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Write your password here"
+        />
+
+        <Button type="submit">Login</Button>
+      </form>
+      <p
+        onClick={() => {
+          setShowLogin(false);
+          setName("");
+          setEmail("");
+        }}
+      >
+        Dont have an account
+      </p>
     </div>
   ) : (
     <div className="flex">
-      <input type="text" placeholder=" write your name here" />
+      <input
+        type="text"
+        placeholder=" write your name here"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
       <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -86,8 +105,16 @@ function Login({ setShow }) {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Write your password here"
       />
-      <Button onClick={CreateAccount}>Create account</Button>
-      <p onClick={() => setShowLogin(true)}>Aleardy have an account</p>
+      <Button onClick={register}>Create account</Button>
+      <p
+        onClick={() => {
+          setName("");
+          setEmail("");
+          setShowLogin(true);
+        }}
+      >
+        Aleardy have an account
+      </p>
     </div>
   );
 }
